@@ -1,0 +1,11 @@
+{
+    "username": "YOUR_BUAA_USERNAME",
+    "password": "YOUR_BUAA_PASSWORD",
+    "notify": true,
+    "wecom": {
+        "corp_id": "YOUR_CORP_ID",
+        "corp_secret": "YOUR_NEW_APP_SECRET",
+        "agent_id": 123456,
+        "user_id": "YOUR_USER_ID"
+    }
+}

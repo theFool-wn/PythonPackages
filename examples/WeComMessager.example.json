@@ -1,0 +1,6 @@
+{
+    "corp_id": "YOUR_CORP_ID",
+    "corp_secret": "YOUR_APP_SECRET",
+    "agent_id": 123456,
+    "user_id": "YOUR_USER_ID"
+}

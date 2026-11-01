@@ -1,0 +1,18 @@
+{
+    "username": "YOUR_BUAA_USERNAME",
+    "password": "YOUR_BUAA_PASSWORD",
+    "notify": true,
+    "wecom": {
+        "corp_id": "YOUR_CORP_ID",
+        "corp_secret": "YOUR_APP_SECRET",
+        "agent_id": 123456,
+        "user_id": "YOUR_USER_ID"
+    },
+    "interval_seconds": 600,
+    "notification_times": ["08:00", "20:00"],
+    "restore_message": "校园网已恢复，互联网可用",
+    "heartbeat_message": "校园网运行正常",
+    "failure_message": "校园网连接异常：{reason}",
+    "notification_format": "text",
+    "log_path": "BuaaNetworkAutoLogin.log"
+}

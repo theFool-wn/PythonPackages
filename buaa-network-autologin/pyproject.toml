@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=77.0.3", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "buaa-network-autologin"
+version = "0.2.0"
+description = "BUAA campus gateway monitor with local-network safety checks"
+authors = [{name = "WangNan", email = "me@wangnan.net"}]
+classifiers = ["Operating System :: Microsoft :: Windows"]
+readme = "README.md"
+license = "AGPL-3.0-or-later"
+license-files = ["LICENSE"]
+requires-python = ">=3.9"
+dependencies = ["requests>=2.28,<3", "urllib3>=1.26,<3", "psutil>=5.9,<8"]
+
+[project.optional-dependencies]
+wecom = ["wecom-messager>=0.2.0"]
+
+[project.scripts]
+BuaaNetworkAutoLogin = "BuaaNetworkAutoLogin.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/theFool-wn/PythonPackages/tree/main/buaa-network-autologin"
+Repository = "https://github.com/theFool-wn/PythonPackages"
+Issues = "https://github.com/theFool-wn/PythonPackages/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
