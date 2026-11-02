@@ -5,6 +5,7 @@
 # @         Description: Check BUAA network connectivity and restore internet access
 # @ Version Information: Created by WangNan, 2025/10/9
 #                        Revised by WangNan, 2026/10/21, package API and configurable notifications
+#                        Revised by WangNan, 2026/11/02, check campus account before internet probes
 # ===================================================================================
 
 
@@ -186,10 +187,6 @@ def _ensure_online(
     if notify and not (wecom or messenger):
         raise ValueError("notify=True 时需要填写 wecom 参数或传入 messenger")
 
-    route = internet_route()
-    if route:
-        return LoginResult("internet_ok", f"互联网可用（{route}），无需登录校园网", True, False)
-
     wifi = campus_wifi_connected()
     redirect = portal_redirect_detected()
     try:
@@ -233,6 +230,9 @@ def _ensure_online(
         except _GatewayError as exc:
             return LoginResult("gateway_unknown", f"{exc}；未尝试登录", False, True)
         if status == "online":
+            route = internet_route()
+            if route:
+                return LoginResult("internet_ok", f"校园网账号已在线，互联网可用（{route}）", True, True)
             return LoginResult("campus_online_no_internet", "校园网账号已在线，但互联网仍不可用", False, True)
         if status != "offline":
             return LoginResult("gateway_unknown", "网关在线状态无法识别；未尝试登录", False, True)
